@@ -32,6 +32,8 @@ document. addEventListener ("DOMContentLoaded", ()=>{
     const airQualityEl = document.getElementById( 'air-quality');
     const healthRecommendationsEl = document.getElementById('health-recommendations');
 
+    const randomSentence = document.getElementById('random-sentence');
+
     // // Chatbot elements
     // const openChatBtn = document.getElementById ('openChatBtn') ;
     // const chatbotContainer = document.getElementById ('chatbotContainer') ;
@@ -319,6 +321,24 @@ document. addEventListener ("DOMContentLoaded", ()=>{
             }
         }
 
+
+
+
+
+    function getRandomSentence(){
+            const sentence = [
+                "Hi! I'm your personal AI WeatherBot. Get quick tips on what to wear, eat, do, and whether to carry an umbrella- all based on today's weather 😊",
+                "Hi! I'm your AI WeatherBot. I give quick, daily suggestions on outfits, meals, activities, and whether to bring an umbrella—weather-smart and ready to go! 😎",
+                "Hi! I'm your AI WeatherBot. Count on me for quick advice on what to wear, eat, and do today—plus whether to pack an umbrella. 🤖"
+            ]
+
+            const index = Math.floor(Math.random()*sentence.length);
+            return sentence[index];
+    }
+
+    randomSentence.innerHTML = getRandomSentence();
+
+    
         
 
         const updateClock = (timezoneOffset)=>{
