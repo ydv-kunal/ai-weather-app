@@ -148,7 +148,7 @@ document. addEventListener ("DOMContentLoaded", ()=>{
             cityNameEl.textContent =`${weather.name}, ${weather.sys.country} `;
             const localDate = new Date((weather.dt + weather.timezone) *1000);
             currentDateEl.textContent = localDate.toLocaleDateString("en-US",{weekday:"long", month:"long", day:"numeric", timeZone:"UTC"})
-            currentTempEl.textContent = `${Math.round(weather.main.temp)}°`;
+            currentTempEl.textContent = `${Math.round(weather.main.temp)}°C`;
             currentWeatherDescEl.textContent = weather.weather[0].description; 
 
             const formatTime = (timestamp) => new Date(timestamp * 1000).toLocaleTimeString("en-US", {hour: "2-digit", minute: "2-digit", hour12: true, timeZone: "UTC"}) ;
