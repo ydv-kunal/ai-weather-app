@@ -458,7 +458,7 @@ document. addEventListener ("DOMContentLoaded", ()=>{
     });
 
     // Added: Function to fetch response from Gemini API
-    async function fetchGeminiResponse(message, temperature) {
+    async function fetchGeminiResponse(message, temperature, weather) {
         try {
             const response = await fetch('https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent', {
                 method: 'POST',
@@ -471,7 +471,7 @@ document. addEventListener ("DOMContentLoaded", ()=>{
                         {
                             parts: [
                                 {
-                                    text: `Based on the current temperature ${temperature}, ${message}`
+                                    text: `Based on the current temperature ${temperature} and weather ${weather}, ${message}`
                                 }
                             ]
                         }
@@ -513,8 +513,13 @@ document. addEventListener ("DOMContentLoaded", ()=>{
         // Get current temperature from UI
         const temperature = currentTempEl.textContent || 'unknown';
 
+        //Get current Weather from UI - )OWNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+        const weather = currentWeatherDescEl.textContent || 'unknown';
+
+
+        
         // Fetch AI response from Gemini API
-        const botResponse = await fetchGeminiResponse(message, temperature);
+        const botResponse = await fetchGeminiResponse(message, temperature, weather);
 
         // Hide typing indicator
         typingIndicator.classList.add('hidden');
